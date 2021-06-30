@@ -52,7 +52,6 @@ public class AfterSignUpButton {
         passwords = password.getText().toString();
         telephones = telephone.getText().toString();
         confirmPasswords = confirmPassword.getText().toString();
-
         if (usernames.equals(""))
             label.setText("Empty field!");
 
@@ -77,6 +76,12 @@ public class AfterSignUpButton {
         else {
             Main main = new Main();
             main.changeScene("createAcc.fxml");
+            Main.out.writeUTF(usernames);
+            Main.out.writeUTF(nationals);
+            Main.out.writeUTF(telephones);
+            Main.out.writeUTF(emails);
+            Main.out.writeUTF(passwords);
         }
+        Main.out.writeUTF("createAccount");
     }
 }

@@ -30,7 +30,10 @@ public class AfterSignInButton {
         nationals = national.getText().toString();
         passwords = password.getText().toString();
 
-        if (nationals.equals("m") && passwords.equals("m")) {
+        Main.out.writeUTF(nationals);
+        Main.out.writeUTF(passwords);
+
+        if (Main.in.readBoolean()) {
             Main main = new Main();
             main.changeScene("logIn.fxml");
             nationals = national.getText().toString();
@@ -41,5 +44,6 @@ public class AfterSignInButton {
 
         else
             label.setText("Please make sure the username and password are correct!");
+        Main.out.writeUTF("LogIn");
     }
 }

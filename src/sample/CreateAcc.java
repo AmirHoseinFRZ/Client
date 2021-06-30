@@ -37,7 +37,7 @@ public class CreateAcc implements Initializable {
     }
 
     public void continueButton(ActionEvent actionEvent) throws Exception {
-        kinds = kind.getItems().toString();
+        kinds = kind.getValue().toString();
         aliass = alias.getText().toString();
         passwords = password.getText().toString();
         confirmPasswords = confirmPassword.getText().toString();
@@ -60,6 +60,9 @@ public class CreateAcc implements Initializable {
         else {
             Main main = new Main();
             main.changeScene("enter.fxml");
+            Main.out.writeUTF(kinds);
+            Main.out.writeUTF(passwords);
+            Main.out.writeUTF(aliass);
         }
     }
 }

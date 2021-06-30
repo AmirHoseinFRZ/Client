@@ -6,14 +6,26 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.*;
+import java.net.Socket;
+
 public class Main extends Application {
     private static Stage stage;
-
+    static Socket socket;
+    static InputStream inputStream;
+    static OutputStream outputStream;
+    static DataInputStream in;
+    static DataOutputStream out;
     @Override
     public void start(Stage primaryStage) throws Exception {
         stage = primaryStage;
         primaryStage.setResizable(false);
         Parent root = FXMLLoader.load(getClass().getResource("signUpOrIn.fxml"));
+        socket = new Socket("localhost", 123);
+        inputStream = socket.getInputStream();
+        outputStream = socket.getOutputStream();
+        in = new DataInputStream(inputStream);
+        out = new DataOutputStream(outputStream);
         primaryStage.setScene(new Scene(root, 500, 600));
         primaryStage.show();
     }
